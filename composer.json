@@ -1,0 +1,94 @@
+{
+    "name": "beziworld/laravel-wezel-krajowy",
+    "description": "Log in with the Polish National Electronic Identification Node (login.gov.pl, Profil Zaufany, mObywatel, e-dowod, bank identities) in Laravel via SAML 2.0 artifact binding",
+    "keywords": [
+        "laravel",
+        "saml",
+        "saml2",
+        "login.gov.pl",
+        "wezel-krajowy",
+        "profil-zaufany",
+        "mobywatel",
+        "e-dowod",
+        "eidas",
+        "sso",
+        "poland"
+    ],
+    "homepage": "https://github.com/beziworld/laravel-wezel-krajowy",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kamil Ćwiertnia",
+            "email": "biuro@beziworld.eu",
+            "homepage": "https://beziworld.eu",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/beziworld/laravel-wezel-krajowy/issues",
+        "source": "https://github.com/beziworld/laravel-wezel-krajowy"
+    },
+    "require": {
+        "php": "^8.3",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "ext-openssl": "*",
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/console": "^12.0|^13.0",
+        "illuminate/contracts": "^12.0|^13.0",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/routing": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "phpseclib/phpseclib": "^3.0.43"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.7|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+        "phpstan/phpstan-strict-rules": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Beziworld\\WezelKrajowy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Beziworld\\WezelKrajowy\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test-coverage": "pest --coverage --min=80",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "format": "pint",
+        "lint": "pint --test",
+        "ci": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Beziworld\\WezelKrajowy\\WezelKrajowyServiceProvider"
+            ],
+            "aliases": {
+                "WezelKrajowy": "Beziworld\\WezelKrajowy\\Facades\\WezelKrajowy"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
