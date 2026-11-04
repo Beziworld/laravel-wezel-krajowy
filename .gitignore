@@ -11,3 +11,6 @@ phpstan.neon
 .vscode/
 .DS_Store
 /.claude/
+
+# gitflow-discipline: audit trail of git commands, machine-local
+.claude/gitflow-discipline/

@@ -55,7 +55,7 @@ function fakeArtifactResolution(string $requestId, array $options = []): void
 
 function loginAs(int $id = 7): void
 {
-    WezelKrajowy::resolveUsersUsing(static fn(Identity $identity): GenericUser => new GenericUser(['id' => $id, 'pesel' => $identity->pesel]));
+    WezelKrajowy::resolveUsersUsing(static fn(Identity $identity): GenericUser => new GenericUser(['id' => $id, 'pesel' => $identity->pesel, 'password' => '', 'remember_token' => null]));
 }
 
 it('renders a self-submitting AuthnRequest form and remembers the request', function (): void {
